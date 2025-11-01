@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Brian’s Web</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* 🔹 Typing effect styling */
+    #typing-title::after, #typing-paragraph::after {
+      content: "|";
+      animation: blink 0.4s step-end infinite;
+    }
+
+    @keyframes blink {
+      50% {
+        opacity: 0;
+      }
+    }git push -u origin maingit push -u origin main
+
+    body {
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    header, footer {
+      position: relative;
+      z-index: 2;
+    }
+
+    #bg-video {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    section.content {
+      position: relative;
+      z-index: 2;
+      padding: 40px;
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 10px;
+      display: inline-block;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 🎥 VIDEO BACKGROUND -->
+  <video autoplay muted loop playsinline id="bg-video">
+    <source src="background.mp4" type="video/mp4" />
+    Your browser does not support HTML5 video.
+  </video>
+
+  <header>
+    <h1>About Me</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="calculator.html">Calculator</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <section class="content">
+    <h2 id="typing-title"></h2>
+    <p id="typing-paragraph"></p>
+  </section>
+
+  <footer>
+    <p>© 2025 Brian Idemudia.</p>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const titleEl = document.getElementById("typing-title");
+      const paraEl = document.getElementById("typing-paragraph");
+
+      const titleText = "Who I Am";
+      const paragraphText = "Hello! I’m Brian Idemudia, a passionate developer who loves building interactive web experiences and learning new technologies. I enjoy combining logic and creativity to make projects that are both functional and beautiful. I also aspire to become a game developer and web designer — so join me as a supporter and watch me grow into a professional web dev.";
+
+      let tIndex = 0, pIndex = 0;
+
+      function typeTitle() {
+        if (tIndex < titleText.length) {
+          titleEl.textContent += titleText.charAt(tIndex);
+          tIndex++;
+          setTimeout(typeTitle, 10); // 🔹 Fast typing for title
+        } else {
+          setTimeout(typeParagraph, 200);
+        }
+      }
+
+      function typeParagraph() {
+        if (pIndex < paragraphText.length) {
+          paraEl.textContent += paragraphText.charAt(pIndex);
+          pIndex++;
+          setTimeout(typeParagraph, 15); // 🔹 Super fast typing
+        }
+      }
+
+      typeTitle();
+    });
+  </script>
+</body>
+</html>
