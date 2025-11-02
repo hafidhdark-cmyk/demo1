@@ -311,3 +311,9 @@ button:hover {
 .active, .dot:hover {
   background-color: #25d366;
 }
+@media(max-width: 767px) {
+  #bg-video {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
